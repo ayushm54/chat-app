@@ -5,7 +5,7 @@ const socketIo = require('socket.io')
 const Filter = require('bad-words')
 
 const { generateMessage, generateLocationMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
+const { addUser, removeUser, getUser, getUsersInRoom, getDistinctRooms } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -93,6 +93,8 @@ io.on('connection', (socket) => {
             generateLocationMessage(user.username, location))
         callback()
     })
+
+    socket.emit('rooms',getDistinctRooms())
 })
 
 

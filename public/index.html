@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -9,16 +10,39 @@
 <body>
     <div class="centered-form">
         <div class="centered-form__box">
-            <h1>Join</h1>
-            <form action="/chat.html">
-                <label>Display name:</label>
-                <input type="text" name="username" placeholder="Display name" required>
-                <label>Room:</label>
-                <input type="text" name="room" placeholder="Room" required>
-                <button>Join</button>
-            </form>
+            <div>
+                <h1>Join</h1>
+                <form id="chatForm">
+                    <label>Display name:</label>
+                    <input type="text" name="username" id="username" placeholder="Display name" required>
+                    <label>Room:</label>
+                    <input type="text" name="room" id="room" placeholder="Room">
+                    <div id='active-rooms-div' class="activeRooms">
+                        <h4 class="center__or">OR</h4>
+                        <label>Select Active room</label>
+                        <div id="active-rooms" class="activeRoomSelect"></div>
+                        <!-- <button id="join-room-button">Join Room</button> -->
+                    </div>
+                    <div id="error" class="errorMessage">Please select a room or enter a new room to continue!</div>
+                    <button id="join">Join</button>
+                </form>
+            </div>
+             
         </div>
     </div>
+
+    <script id="rooms-template" type="text/html">
+        <select id="activeRoomSelected">
+            <option value="#">Select</option>
+            {{#rooms}}
+                <option value={{.}}>{{.}}</option>
+            {{/rooms}}
+        </select>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 
 </html>

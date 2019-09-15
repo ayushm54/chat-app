@@ -181,3 +181,32 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
+
+.center__or {
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.activeRooms {
+    display: none;
+}
+
+select {
+    border: 1px solid #eeeeee;
+    padding: 12px;
+    outline: none;
+    width: inherit;
+}
+
+.activeRoomSelect {
+    width: 100%;
+    margin-bottom: 8%;
+    margin-top: 3%;
+}
+
+.errorMessage {
+    color: red;
+    display: none;
+    margin-bottom: 5%;
+    font-size: 69%;
+}
